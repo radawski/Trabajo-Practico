@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Compilar Java src",
+			"type": "shell",
+			"command": "javac",
+			"args": [
+				"-Xlint:all",
+				"-d",
+				"lib",
+				"src/*.java"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build"
+		}
+	]
+}
