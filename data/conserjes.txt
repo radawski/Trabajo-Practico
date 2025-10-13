@@ -1,0 +1,3 @@
+Juan;Pérez;jperez;abcde12345
+Ana;García;agarcia;passw99988
+Carlos;López;clopez;clavea1234
