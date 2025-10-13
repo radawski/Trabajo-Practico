@@ -16,6 +16,45 @@
 				"$gcc"
 			],
 			"group": "build"
+		},
+		{
+			"label": "build (packages only)",
+			"type": "shell",
+			"command": "javac",
+			"args": [
+				"-Xlint:all",
+				"-d",
+				"lib",
+				"-sourcepath",
+				"src",
+				"src\\com\\tuempresa\\hotel\\main\\Main.java"
+			],
+			"problemMatcher": [
+				"$javac"
+			],
+			"group": "build"
+		},
+		{
+			"label": "clean: remove root src .java",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoLogo",
+				"-NoProfile",
+				"-Command",
+				"$src='E:\\agus\\UTN 2025\\DESARROLLO DE SOFTWARE\\tp desarrollo\\Trabajo Practico\\src'; Get-ChildItem -Path $src -File -Filter *.java | ForEach-Object { Remove-Item -Force $_.FullName }; Write-Output 'Eliminados todos los .java en src/ raíz'"
+			]
+		},
+		{
+			"label": "clean: del root src java (*.java)",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"del",
+				"/Q",
+				"E:\\agus\\UTN 2025\\DESARROLLO DE SOFTWARE\\tp desarrollo\\Trabajo Practico\\src\\*.java"
+			]
 		}
 	]
 }
