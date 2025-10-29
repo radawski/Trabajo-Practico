@@ -4,4 +4,9 @@ package com.tuempresa.hotel.modelo.ubicacion;
 public class Pais {
     public String nombre;
     public String IDPais;
+
+    public Pais(String nombre) {
+        this.nombre = nombre;
+    }
 }
+

@@ -31,6 +31,9 @@ public class Login {
             Conserje conserje = gestor.autenticar(usuario, contrasenia);
             System.out.println("✅ Bienvenido " + conserje.getNombreCompleto() + "!");
             System.out.println("Cargando pantalla principal...");
+            MenuPrincipal.mostrarMenuPrincipal(scanner);
+            
+
         } catch (Exception e) {
             System.out.println("❌ " + e.getMessage());
             System.out.println("Por favor, intente nuevamente.");

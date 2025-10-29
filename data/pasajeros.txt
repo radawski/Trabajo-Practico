@@ -1,0 +1,10 @@
+García;Juan Carlos;DNI;12345678;20345678901;;1985-03-12;Calle Falsa;123;1;2;2000;Rosario;Santa Fe;Argentina;3412345678;juan.garcia@example.com;Ingeniero;Argentina
+López;María Isabel;DNI;23456789;27345678902;Empresa López SA;1990-07-25;Av. Independencia;456;2;1;2001;Rosario;Santa Fe;Argentina;3419876543;maria.lopez@example.com;Profesora;Argentina
+Pérez;Carlos Alberto;DNI;34567890;20355678903;;1978-11-02;Calle Mitre;78;5;2;3000;Santa Fe;Santa Fe;Argentina;3412233445;carlos.perez@example.com;Médico;Argentina
+Rodríguez;Lucía Fernanda;PASAPORTE;45678901;27365678904;;1995-05-18;Rambla;1200;3;10;11000;Montevideo;Montevideo;Uruguay;3491122334;lucia.rodriguez@example.com;Diseñadora;Uruguay
+Gómez;Diego Martín;PASAPORTE;56789012;20375678905;Gómez & Asociados;1982-02-27;Calle Nueva;22;1;0;8320000;Santiago;Región Metropolitana;Chile;3415566778;diego.gomez@example.com;Abogado;Chile
+Martín;Ana Paula;DNI;67890123;27385678906;;1988-09-09;Bv. Oroño;300;4;3;2002;Rosario;Santa Fe;Argentina;3416677889;ana.martin@example.com;Contadora;Argentina
+Fernández;Sofía Valentina;DNI;78901234;20395678907;;2000-12-30;Cnel. Bogado;55;2;1;1001;Asunción;Asunción;Paraguay;3417788990;sofia.fernandez@example.com;Estudiante;Paraguay
+Sosa;Martín Nicolás;DNI;89012345;27405678908;Sosa SRL;1975-06-14;Gral. López;1500;6;0;2003;Rosario;Santa Fe;Argentina;3418899001;martin.sosa@example.com;Empresario;Argentina
+Torres;Camila Alejandra;DNI;90123456;20415678909;;1992-08-03;Calle 18 de Julio;901;7;2;11100;Montevideo;Montevideo;Uruguay;3419900112;;Arquitecta;Uruguay
+Ruiz;Federico Andrés;DNI;01234567;27425678910;;1980-01-20;Av. Pellegrini;420;1;4;2004;Rosario;Santa Fe;Argentina;3411011223;federico.ruiz@example.com;Periodista;Argentina

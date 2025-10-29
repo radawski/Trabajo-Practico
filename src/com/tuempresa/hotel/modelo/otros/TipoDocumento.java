@@ -4,4 +4,13 @@ package com.tuempresa.hotel.modelo.otros;
 public class TipoDocumento {
     private Integer IDTipoDocumento;
     private String tipo;
+
+    public TipoDocumento(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getTipo(){
+        return tipo;
+    }
+
 }

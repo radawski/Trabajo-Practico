@@ -11,4 +11,11 @@ public class Provincia {
     // Relaciones
     public Pais pais;
     public List<Ciudad> ciudades = new ArrayList<>();
+
+    public Provincia(String nombre, Pais pais) {
+        this.nombre = nombre;
+        this.pais = pais;
+    }
+
 }
+

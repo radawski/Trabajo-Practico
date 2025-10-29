@@ -12,4 +12,13 @@ public class Direccion {
 
     // Relaciones
     private Ciudad ciudad;
+
+    public Direccion(Integer codigoPostal, String calle, Integer nroCalle, Integer piso, Integer nroDepartamento, Ciudad ciudad) {
+        this.codigoPostal = codigoPostal;
+        this.calle = calle;
+        this.nroCalle = nroCalle;
+        this.piso = piso;
+        this.nroDepartamento = nroDepartamento;
+        this.ciudad = ciudad;
+    }
 }

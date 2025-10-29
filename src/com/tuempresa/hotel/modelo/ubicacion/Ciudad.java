@@ -13,4 +13,12 @@ public class Ciudad {
     // Relaciones
     public Provincia provincia;
     public List<Direccion> direcciones = new ArrayList<>();
+
+    public Ciudad(String nombre, Provincia provincia) {
+        this.nombre = nombre;
+        this.provincia = provincia;
+    }
+
 }
+
+
