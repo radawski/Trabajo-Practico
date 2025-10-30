@@ -7,20 +7,16 @@ import com.tuempresa.hotel.modelo.ubicacion.Pais;
 import com.tuempresa.hotel.modelo.ubicacion.Provincia;
 import com.tuempresa.hotel.modelo.otros.TipoDocumento;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
  * DAO simple que carga pasajeros desde un archivo de texto (data/pasajeros.txt)
  * Cada línea debe contener 19 campos separados por ';':
  * apellido;nombres;tipoDocumento;nroDocumento;CUIT;razonSocial;fechaDeNacimiento;calle;nroCalle;nroDepartamento;piso;codigoPostal;nombreCiudad;nombreProvincia;nombrePais;telefono;email;ocupacion;nacionalidad
-*/
+ */
 public class PasajeroDAO {
 
     private final String rutaArchivo;
@@ -35,7 +31,9 @@ public class PasajeroDAO {
         try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
             String linea;
             while ((linea = br.readLine()) != null) {
-                if (linea.trim().isEmpty()) continue;
+                if (linea.trim().isEmpty()) {
+                    continue;
+                }
                 String[] partes = linea.split(";");
                 if (partes.length < 19) {
                     System.err.println("Línea de pasajero con formato inválido (se esperaban 19 campos): " + linea);
@@ -71,7 +69,9 @@ public class PasajeroDAO {
                     String cuit = textOrNull(partes[4]);
 
                     String razonSocial = textOrNull(partes[5]);
-                    if (razonSocial == null) razonSocial = "consumidor final";
+                    if (razonSocial == null) {
+                        razonSocial = "consumidor final";
+                    }
 
                     String fechaNacimientoStr = textOrNull(partes[6]);
                     LocalDate fechaNacimiento = null;
@@ -97,7 +97,7 @@ public class PasajeroDAO {
                     String email = textOrNull(partes[16]);
                     String ocupacion = textOrNull(partes[17]);
                     String nacionalidad = textOrNull(partes[18]);
-                    
+
                     Pais pais = new Pais(nombrePais);
                     Provincia provincia = new Provincia(nombreProvincia, pais);
                     Ciudad ciudad = new Ciudad(nombreCiudad, provincia);
@@ -106,7 +106,7 @@ public class PasajeroDAO {
 
                     TipoDocumento tipoDocumento = new TipoDocumento(tipoDocTexto);
 
-                    Pasajero p = new Pasajero(nombres, apellido, cuit, nroDocumento, fechaNacimiento, nacionalidad, email, telefono, ocupacion,direccion, tipoDocumento, razonSocial);
+                    Pasajero p = new Pasajero(nombres, apellido, cuit, nroDocumento, fechaNacimiento, nacionalidad, email, telefono, ocupacion, direccion, tipoDocumento, razonSocial);
 
                     lista.add(p);
                 } catch (Exception e) {
@@ -121,22 +121,27 @@ public class PasajeroDAO {
     }
 
     private static String textOrNull(String s) {
-        if (s == null) return null;
+        if (s == null) {
+            return null;
+        }
         String t = s.trim();
-        if (t.isEmpty()) return null;
+        if (t.isEmpty()) {
+            return null;
+        }
         return t;
     }
 
     private static Integer intOrNull(String s) {
         String t = textOrNull(s);
-        if (t == null) return null;
+        if (t == null) {
+            return null;
+        }
         try {
             return Integer.valueOf(t);
         } catch (NumberFormatException e) {
             return null;
         }
     }
-
 
     public List<Pasajero> buscarPasajerosPorDatos(String datosBusqueda) {
 
@@ -153,10 +158,10 @@ public class PasajeroDAO {
         for (Pasajero p : obtenerTodos()) {
             // Obtiene todos los datos del pasajero en una sola cadena, para buscar fácilmente
             String datosPasajero = p.obtenerDatosCompletos();
-            
+
             // Verificación de Todos los Datos
             boolean contieneTodosLosDatos = true;
-            
+
             for (String token : tokens) {
                 if (!datosPasajero.contains(token)) {
                     contieneTodosLosDatos = false;
@@ -170,5 +175,22 @@ public class PasajeroDAO {
         }
 
         return pasajerosEncontrados;
+    }
+
+    public void guardar(Pasajero pasajero) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(rutaArchivo, true))) {
+            bw.write(pasajero.toString());
+            bw.newLine();
+        } catch (IOException e) {
+            throw new RuntimeException("Error al guardar pasajero", e);
+        }
+    }
+
+    public Pasajero buscarPorDocumento(TipoDocumento tipoDoc, String numeroDoc) {
+        return obtenerTodos().stream()
+                .filter(p -> p.getTipoDocumento().equals(tipoDoc)
+                && p.getNroDocumento().equalsIgnoreCase(numeroDoc))
+                .findFirst()
+                .orElse(null);
     }
 }

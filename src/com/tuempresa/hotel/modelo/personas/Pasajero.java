@@ -6,24 +6,25 @@ import com.tuempresa.hotel.modelo.otros.TipoDocumento;
 
 @SuppressWarnings("unused")
 public class Pasajero {
-    private String nombres;
-    private String apellido;
-    private String CUIT;
-    private String nroDocumento;
-    private LocalDate fechaDeNacimiento;
-    private String nacionalidad;
-    private String email;
-    private String telefono;
-    private String ocupacion;
-    private String razonSocial;
+
+    private final String nombres;
+    private final String apellido;
+    private final String CUIT;
+    private final String nroDocumento;
+    private final LocalDate fechaDeNacimiento;
+    private final String nacionalidad;
+    private final String email;
+    private final String telefono;
+    private final String ocupacion;
+    private final String razonSocial;
 
     // Relaciones
-    private Direccion direccion;
-    private TipoDocumento tipoDocumento;
+    private final Direccion direccion;
+    private final TipoDocumento tipoDocumento;
 
     public Pasajero(String nombres, String apellido, String CUIT, String nroDocumento,
-                    LocalDate fechaDeNacimiento, String nacionalidad, String email,
-                    String telefono, String ocupacion, Direccion direccion, TipoDocumento tipoDocumento, String razonSocial) {
+            LocalDate fechaDeNacimiento, String nacionalidad, String email,
+            String telefono, String ocupacion, Direccion direccion, TipoDocumento tipoDocumento, String razonSocial) {
         this.nombres = nombres;
         this.apellido = apellido;
         this.CUIT = CUIT;
@@ -83,7 +84,7 @@ public class Pasajero {
     }
 
     public String obtenerDatosCompletos() {
-        return (apellido + " " + nombres + " " + tipoDocumento.getTipo() + " " + nroDocumento).toLowerCase(); 
+        return (apellido + " " + nombres + " " + tipoDocumento.getTipo() + " " + nroDocumento).toLowerCase();
     }
 
 }
