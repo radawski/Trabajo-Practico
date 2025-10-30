@@ -4,6 +4,7 @@ import com.tuempresa.hotel.modelo.ubicacion.Ciudad;
 
 @SuppressWarnings("unused")
 public class Direccion {
+
     private Integer codigoPostal;
     private String calle;
     private Integer nroCalle;
@@ -21,4 +22,29 @@ public class Direccion {
         this.nroDepartamento = nroDepartamento;
         this.ciudad = ciudad;
     }
+
+    public Integer getCodigoPostal() {
+        return codigoPostal;
+    }
+
+    public String getCalle() {
+        return calle;
+    }
+
+    public Integer getNroCalle() {
+        return nroCalle;
+    }
+
+    public Integer getPiso() {
+        return piso;
+    }
+
+    public Integer getnroDepartamento() {
+        return nroDepartamento;
+    }
+
+    public Ciudad getCiudad() {
+        return ciudad;
+    }
+
 }
