@@ -1,4 +1,4 @@
-package com.tuempresa.hotel.modelo.personas;
+package com.tuempresa.hotel.servicio;
 
 public class ValidadorContrasenia {
 

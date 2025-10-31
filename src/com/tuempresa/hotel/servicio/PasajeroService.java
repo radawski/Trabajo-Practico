@@ -1,15 +1,15 @@
 package com.tuempresa.hotel.servicio;
 
-import com.tuempresa.hotel.dao.PasajeroDAO;
+import com.tuempresa.hotel.dao.implementacion.PasajeroFileDAO;
 import com.tuempresa.hotel.modelo.personas.Pasajero;
 import com.tuempresa.hotel.strategy.ValidacionStrategy;
 
 public class PasajeroService {
 
-    private final PasajeroDAO pasajeroDAO;
+    private final PasajeroFileDAO pasajeroDAO;
     private ValidacionStrategy validacionStrategy;
 
-    public PasajeroService(PasajeroDAO pasajeroDAO, ValidacionStrategy validacionStrategy) {
+    public PasajeroService(PasajeroFileDAO pasajeroDAO, ValidacionStrategy validacionStrategy) {
         this.pasajeroDAO = pasajeroDAO;
         this.validacionStrategy = validacionStrategy;
     }
@@ -31,6 +31,7 @@ public class PasajeroService {
         }
 
         pasajeroDAO.guardar(pasajero);
+        
         System.out.println("✅ El pasajero " + pasajero.getNombre() + " " + pasajero.getApellido() + " ha sido cargado.");
         return true;
     }

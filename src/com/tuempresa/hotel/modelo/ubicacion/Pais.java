@@ -8,5 +8,9 @@ public class Pais {
     public Pais(String nombre) {
         this.nombre = nombre;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
 }
 
