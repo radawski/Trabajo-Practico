@@ -1,8 +1,9 @@
 package com.tuempresa.hotel.modelo.personas;
 
 import com.tuempresa.hotel.modelo.ubicacion.Ciudad;
+import com.tuempresa.hotel.modelo.ubicacion.Pais;
+import com.tuempresa.hotel.modelo.ubicacion.Provincia;
 
-@SuppressWarnings("unused")
 public class Direccion {
 
     private Integer codigoPostal;
@@ -23,6 +24,16 @@ public class Direccion {
         this.ciudad = ciudad;
     }
 
+    public Direccion(String calle2, int nroCalle2, int piso2, int nroDepartamento2, String ciudad2, int codigoPostal2,
+            String provincia, String pais) {
+        this.calle = calle2;
+        this.nroCalle = nroCalle2;
+        this.piso = piso2;
+        this.nroDepartamento = nroDepartamento2;
+        this.ciudad = new Ciudad(ciudad2, new Provincia(provincia, new Pais(pais)));
+        this.codigoPostal = codigoPostal2;
+    }
+
     public Integer getCodigoPostal() {
         return codigoPostal;
     }
@@ -39,7 +50,7 @@ public class Direccion {
         return piso;
     }
 
-    public Integer getnroDepartamento() {
+    public Integer getNroDepartamento() {
         return nroDepartamento;
     }
 

@@ -19,6 +19,14 @@ public class Ciudad {
         this.provincia = provincia;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public Provincia getProvincia() {
+        return provincia;
+    }
+
 }
 
 

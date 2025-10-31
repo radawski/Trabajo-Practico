@@ -4,7 +4,7 @@ package com.tuempresa.hotel.modelo.otros;
 public class TipoDocumento {
 
     private Integer IDTipoDocumento;
-    private final String tipo;
+    private String tipo;
 
     public TipoDocumento(String tipo) {
         this.tipo = tipo;
@@ -12,6 +12,10 @@ public class TipoDocumento {
 
     public String getTipo() {
         return tipo;
+    }
+
+    public void setTipo(String nuevoTipoDocumento) {
+        this.tipo = nuevoTipoDocumento;
     }
 
 }

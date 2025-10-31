@@ -7,20 +7,20 @@ import com.tuempresa.hotel.modelo.otros.TipoDocumento;
 @SuppressWarnings("unused")
 public class Pasajero {
 
-    private final String nombres;
-    private final String apellido;
-    private final String CUIT;
-    private final String nroDocumento;
-    private final LocalDate fechaDeNacimiento;
-    private final String nacionalidad;
-    private final String email;
-    private final String telefono;
-    private final String ocupacion;
-    private final String razonSocial;
+    private String nombres;
+    private String apellido;
+    private String CUIT;
+    private String nroDocumento;
+    private LocalDate fechaDeNacimiento;
+    private String nacionalidad;
+    private String email;
+    private String telefono;
+    private String ocupacion;
+    private String razonSocial;
 
     // Relaciones
-    private final Direccion direccion;
-    private final TipoDocumento tipoDocumento;
+    private Direccion direccion;
+    private TipoDocumento tipoDocumento;
 
     public Pasajero(String nombres, String apellido, String CUIT, String nroDocumento,
             LocalDate fechaDeNacimiento, String nacionalidad, String email,
@@ -38,6 +38,8 @@ public class Pasajero {
         this.tipoDocumento = tipoDocumento;
         this.razonSocial = razonSocial;
     }
+
+    
 
     public String getNombre() {
         return nombres;
@@ -87,4 +89,85 @@ public class Pasajero {
         return (apellido + " " + nombres + " " + tipoDocumento.getTipo() + " " + nroDocumento).toLowerCase();
     }
 
+    public String toTxtLine() {
+        return String.join(";", new String[] {
+                apellido, nombres, tipoDocumento.getTipo(), nroDocumento, CUIT,
+                razonSocial, fechaDeNacimiento != null ? fechaDeNacimiento.toString() : "",
+                direccion.getCalle(), String.valueOf(direccion.getNroCalle()),
+                direccion.getNroDepartamento() != null ? direccion.getNroDepartamento().toString() : "",
+                direccion.getPiso() != null ? direccion.getPiso().toString() : "",
+                String.valueOf(direccion.getCodigoPostal()),
+                direccion.getCiudad().getNombre(), direccion.getCiudad().getProvincia().getNombre(),
+                direccion.getCiudad().getProvincia().getPais().getNombre(), telefono, email,
+                ocupacion, nacionalidad
+        });
+    }
+
+
+
+    public void setNombre(String nuevoNombre) {
+        this.nombres = nuevoNombre;
+    }
+
+
+
+    public void setApellido(String nuevoApellido) {
+        this.apellido = nuevoApellido;
+    }
+
+
+
+    public void setTipoDocumento(String nuevoTipoDocumento) {
+        this.tipoDocumento.setTipo(nuevoTipoDocumento);
+    }
+
+
+
+    public void setFechaNacimiento(LocalDate nuevaFechaNacimiento) {
+        this.fechaDeNacimiento = nuevaFechaNacimiento;
+    }
+
+
+
+    public void setDireccion(Direccion nuevaDireccion) {
+        this.direccion = nuevaDireccion;
+    }
+
+
+
+    public void setTelefono(String nuevoTelefono) {
+        this.telefono = nuevoTelefono;
+    }
+
+
+
+    public void setOcupacion(String nuevaOcupacion) {
+        this.ocupacion = nuevaOcupacion;
+    }
+
+
+
+    public void setEmail(String nuevoEmail) {
+        this.email = nuevoEmail;
+    }
+
+
+
+    public void setCuit(String nuevoCUIT) {
+        this.CUIT = nuevoCUIT;
+    }
+
+
+
+    public void setNacionalidad(String nuevaNacionalidad) {
+        this.nacionalidad = nuevaNacionalidad;
+    }
+
+
+
+    public void setRazonSocial(String nuevaRazonSocial) {
+        this.razonSocial = nuevaRazonSocial;
+    }
+
+    
 }
