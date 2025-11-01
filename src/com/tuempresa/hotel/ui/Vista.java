@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
+import com.tuempresa.hotel.dao.PasajeroDAO;
 import com.tuempresa.hotel.modelo.personas.Direccion;
 import com.tuempresa.hotel.modelo.personas.Pasajero;
 import com.tuempresa.hotel.modelo.otros.TipoDocumento;
@@ -23,6 +24,37 @@ public class Vista {
         System.out.print("Seleccione una opción: ");
         return Integer.parseInt(scanner.nextLine());
     }
+
+//    public Boolean buscarPasajeros(PasajeroDAO dao) {
+//        Scanner sc = new Scanner(System.in);
+//        Boolean ret = false;
+//
+//        System.out.println("=== Buscar pasajero ===");
+//        System.out.print("Apellido (dejar vacío si no se conoce): ");
+//        String apellido = sc.nextLine().trim();
+//
+//        System.out.print("Nombre (dejar vacío si no se conoce): ");
+//        String nombre = sc.nextLine().trim();
+//
+//        System.out.print("Tipo de documento (dejar vacío si no se conoce): ");
+//        TipoDocumento tipoDoc = new TipoDocumento(sc.nextLine().trim());
+//
+//        System.out.print("Número de documento (dejar vacío si no se conoce): ");
+//        String nroDoc = sc.nextLine().trim();
+//
+//        List<Pasajero> encontrados = dao.buscarPasajerosPorDatos(apellido, nombre, tipoDoc, nroDoc);
+//
+//        if (encontrados.isEmpty()){
+//            System.out.println("No se encontraron pasajeros con esos datos.");
+//        } else {
+//            ret = true;
+//            System.out.println("\n--- Resultados ---");
+//            encontrados.forEach(System.out::println);
+//        }
+//
+//        sc.close();
+//        return ret;
+//    }
 
     public String pedirFiltroDeBusqueda() {
         System.out.print("Ingresar datos de la busqueda: ");

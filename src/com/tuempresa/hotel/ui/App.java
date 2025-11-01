@@ -57,6 +57,8 @@ public class App {
             String usuario = vista.pedirUsuario();
             String contrasenia = vista.pedirContrasenia();
 
+            System.out.println(contrasenia);
+
             if (!ValidadorContrasenia.validar(contrasenia)) {
                 System.out.println("La contraseña no cumple con los requisitos de seguridad.");
                 continue;
